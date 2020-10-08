@@ -10,6 +10,11 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 
+/Universal-Game/Library/
+/Universal-Game/Temp/
+/Universal-Game/obj/
+/Universal-Game/Logs/
+
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
 
