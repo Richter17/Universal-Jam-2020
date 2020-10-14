@@ -5526,7 +5526,7 @@ GameObject:
   - component: {fileID: 3933879090721043764}
   - component: {fileID: 7660140080719109583}
   m_Layer: 0
-  m_Name: Spaceship.002
+  m_Name: Reck2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5636,23 +5636,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!4 &3904638714956305917
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4430346407442190151}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -154.8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 8144103980004264694}
-  - {fileID: 6551458702606682812}
-  - {fileID: 7015569352075440339}
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3933879090721043764
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5661,22 +5644,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 351423632764124918}
   m_Mesh: {fileID: 6185885739802064395, guid: e399ca9411ecc7144ba5ba5348539138, type: 3}
---- !u!1 &4430346407442190151
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3904638714956305917}
-  m_Layer: 0
-  m_Name: Spaceship 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &5024128691339110689
 GameObject:
   m_ObjectHideFlags: 0
@@ -5689,7 +5656,7 @@ GameObject:
   - component: {fileID: 6008414220015180838}
   - component: {fileID: 1683225632962950361}
   m_Layer: 0
-  m_Name: Spaceship.001
+  m_Name: Reck1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5749,12 +5716,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 351423632764124918}
-  m_LocalRotation: {x: -0.00000003774895, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.00000003774895, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -154.8}
   m_LocalScale: {x: 24.668737, y: 24.668737, z: 24.668737}
   m_Children: []
-  m_Father: {fileID: 3904638714956305917}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &7015569352075440339
 Transform:
@@ -5763,12 +5730,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9112691276072811161}
-  m_LocalRotation: {x: -0.00000003774895, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.00000003774895, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -154.8}
   m_LocalScale: {x: 24.668737, y: 24.668737, z: 24.668737}
   m_Children: []
-  m_Father: {fileID: 3904638714956305917}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &7040549094787553311
 Transform:
@@ -5838,12 +5805,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5024128691339110689}
-  m_LocalRotation: {x: -0.00000003774895, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.00000003774895, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -154.8}
   m_LocalScale: {x: 24.668737, y: 24.668737, z: 24.668737}
   m_Children: []
-  m_Father: {fileID: 3904638714956305917}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9112691276072811161
 GameObject:
@@ -5857,7 +5824,7 @@ GameObject:
   - component: {fileID: 2986020942484986187}
   - component: {fileID: 3742578511872948939}
   m_Layer: 0
-  m_Name: Spaceship.003
+  m_Name: Reck3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
