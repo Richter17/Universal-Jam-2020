@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour
 {
     public PlayerController player;
     public List<Item> items;
-    bool gameOver = false;
+    public ItemCanvas itemCanvas;
+    public bool gameOver = false;
+    public Spaceship spaceship;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +17,8 @@ public class GameManager : MonoBehaviour
         player.ItemCollected += OnItemCollected;
         player.VisitSS += OnVisit;
         player.playerOxygen.PlayerDied += OnPlayerDeath;
+        itemCanvas.Show(items.Count);
+        player.transform.position = spaceship.transform.position;
     }
 
     private void OnPlayerDeath()
@@ -25,10 +29,11 @@ public class GameManager : MonoBehaviour
 
     private void OnItemCollected(int id)
     {
-        Debug.Log("Player collected item: " + id);
         Item item = items.Find(i => i.id == id);
         if (!item) return;
+        Debug.Log("Player collected item: " + id);
         item.gameObject.SetActive(false);
+        itemCanvas.DeleteItem();
         items.Remove(item);
         if (items.Count == 0)
         {
