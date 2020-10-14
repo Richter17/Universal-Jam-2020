@@ -35,7 +35,6 @@ public class PlayerOxygen : MonoBehaviour
         {
             Debug.Log("GAME OVER");
             PlayerDied?.Invoke();
-            enabled = false;
         }
     }
 }
