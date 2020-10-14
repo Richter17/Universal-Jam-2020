@@ -9,6 +9,7 @@ public class PlayerOxygen : MonoBehaviour
     public delegate void PlayerDiedDel();
     public event PlayerDiedDel PlayerDied;
     public bool counting = false;
+    public Lifebar lifebar;
 
     private void Start()
     {
@@ -28,8 +29,9 @@ public class PlayerOxygen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        lifebar.SetValue(time/maxTime);
         if (!counting) return;
-        Debug.Log(time);
+        //Debug.Log(time);
         time -= Time.deltaTime;
         if (time <= 0)
         {

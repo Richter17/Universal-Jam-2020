@@ -93,6 +93,7 @@ public class PlayerController : MonoBehaviour
         if (item)
         {
             ItemCollected?.Invoke(item.id);
+            return;
         }
         Spaceship spaceship = collision.GetComponent<Spaceship>();
         if (spaceship)
@@ -100,6 +101,14 @@ public class PlayerController : MonoBehaviour
             VisitSS?.Invoke();
             playerOxygen.counting = false;
             playerOxygen.RefillOxygen();
+            return;
+        }
+        OxygenBubble oxygenBubble = collision.GetComponent<OxygenBubble>();
+        if (oxygenBubble)
+        {
+            playerOxygen.RefillOxygen(oxygenBubble.oxygenCapacity);
+            oxygenBubble.gameObject.SetActive(false);
+            return;
         }
         //if (collision.transform != Planet.transform)
         //{
