@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject wonPanel;
     public GameObject diePanel;
     public TMPro.TextMeshProUGUI missionTxt;
+    public Transform arrow;
 
     // Start is called before the first frame update
     void Start()
@@ -22,13 +23,27 @@ public class GameManager : MonoBehaviour
         player.playerOxygen.PlayerDied += OnPlayerDeath;
         itemCanvas.Show(items.Count);
         player.transform.position = spaceship.transform.position;
-        missionTxt.text = "Find all Spaceship pieces.";
+        
+        player.gameObject.SetActive(false);
+        StartCoroutine(DelayInvoke(5, delegate
+        {
+            missionTxt.text = "Find all Spaceship pieces.";
+            player.canMove = true;
+            player.gameObject.SetActive(true);
+        }));
+    }
+
+    private IEnumerator DelayInvoke(float delay, Action action)
+    {
+        yield return new WaitForSeconds(delay);
+        action?.Invoke();
     }
 
     private void OnPlayerDeath()
     {
         Debug.Log("GAME OVER");
         diePanel.SetActive(true);
+        player.canMove = false;
     }
 
     private void OnItemCollected(int id)
@@ -53,12 +68,13 @@ public class GameManager : MonoBehaviour
         Debug.Log("Player visit the spaceship");
         if (gameOver)
         {
-            var ss = spaceship.transform.parent.GetComponent<SpaceshipAnimation>();
+            var ss = spaceship.transform.parent.GetComponentInChildren<SpaceshipAnimation>();
             ss.ToggleDestroyState(false);
             ss.TakeOff();
             Debug.Log("Player won");
             wonPanel.SetActive(true);
             player.playerOxygen.isCounting = false;
+            player.canMove = false;
         }
     }
 
@@ -72,6 +88,27 @@ public class GameManager : MonoBehaviour
         ScenesManager.ReloadScene();
     }
 
+    private void PointArrow()
+    {
+        //search closest item
+        float dis = float.MaxValue;
+        Item i = null;
+        foreach (var item in items)
+        {
+            float calcDis = Vector3.Distance(item.transform.position, player.transform.position);
+            if(calcDis < dis)
+            {
+                dis = calcDis;
+                i = item;
+            }
+        }
+        if(i)
+            arrow.LookAt(i.transform.position, player.transform.up);
+        else
+            arrow.LookAt(spaceship.transform.position, player.transform.up);
+
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -80,5 +117,6 @@ public class GameManager : MonoBehaviour
         {
             player.playerOxygen.RefillOxygen();
         }
+        PointArrow();
     }
 }

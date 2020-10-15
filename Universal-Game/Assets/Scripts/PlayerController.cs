@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Transform Planet;
+    public bool canMove;
     public float speed = 4;
     public float JumpHeight = 1.2f;
     float gravity = 100;
@@ -35,8 +36,8 @@ public class PlayerController : MonoBehaviour
     {
 
         //MOVEMENT
-        float x = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
-        float z = Input.GetAxis("Vertical") * Time.deltaTime * speed;
+        float x = canMove ? Input.GetAxis("Horizontal") * Time.deltaTime * speed : 0;
+        float z = canMove ? Input.GetAxis("Vertical") * Time.deltaTime * speed : 0;
 
         transform.Translate(x, 0, z);
 
