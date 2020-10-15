@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
         item.gameObject.SetActive(false);
         itemCanvas.DeleteItem();
         items.Remove(item);
+        player.playerOxygen.RefillOxygen();
         if (items.Count == 0)
         {
             Debug.Log("all items found");
