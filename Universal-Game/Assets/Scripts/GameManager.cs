@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Spaceship spaceship;
     public GameObject wonPanel;
     public GameObject diePanel;
+    public TMPro.TextMeshProUGUI missionTxt;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
         player.playerOxygen.PlayerDied += OnPlayerDeath;
         itemCanvas.Show(items.Count);
         player.transform.position = spaceship.transform.position;
+        missionTxt.text = "Find all Spaceship pieces.";
     }
 
     private void OnPlayerDeath()
@@ -41,6 +43,7 @@ public class GameManager : MonoBehaviour
         if (items.Count == 0)
         {
             Debug.Log("all items found");
+            missionTxt.text = "Return to spaceship ASAP!";
             gameOver = true;
         }
     }
@@ -50,6 +53,9 @@ public class GameManager : MonoBehaviour
         Debug.Log("Player visit the spaceship");
         if (gameOver)
         {
+            var ss = spaceship.transform.parent.GetComponent<SpaceshipAnimation>();
+            ss.ToggleDestroyState(false);
+            ss.TakeOff();
             Debug.Log("Player won");
             wonPanel.SetActive(true);
             player.playerOxygen.isCounting = false;
@@ -69,6 +75,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //cheats
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            player.playerOxygen.RefillOxygen();
+        }
     }
 }
