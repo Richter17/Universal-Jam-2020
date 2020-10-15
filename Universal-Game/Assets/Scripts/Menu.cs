@@ -10,4 +10,10 @@ public class Menu : MonoBehaviour
     {
         ScenesManager.LoadScene(GameSceneID);
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+    }
 }
