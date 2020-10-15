@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 8586900712250427622}
   - component: {fileID: 8586900712250427616}
   - component: {fileID: 8586900712250427623}
+  - component: {fileID: 4730177498379055127}
   m_Layer: 5
   m_Name: ItemIcon
   m_TagString: Untagged
@@ -150,6 +151,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4730177498379055127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8586900712250427621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8871cb958f4c33f4fb98a131f5c1501a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  img: {fileID: 8586900712989941921}
+  duration: 0.2
 --- !u!1 &8586900712989941927
 GameObject:
   m_ObjectHideFlags: 0

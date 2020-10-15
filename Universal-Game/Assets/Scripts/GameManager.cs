@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public ItemCanvas itemCanvas;
     public bool gameOver = false;
     public Spaceship spaceship;
+    public GameObject wonPanel;
+    public GameObject diePanel;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +26,7 @@ public class GameManager : MonoBehaviour
     private void OnPlayerDeath()
     {
         Debug.Log("GAME OVER");
-        Debug.Log("YOU LOST");
+        diePanel.SetActive(true);
     }
 
     private void OnItemCollected(int id)
@@ -48,12 +50,24 @@ public class GameManager : MonoBehaviour
         if (gameOver)
         {
             Debug.Log("Player won");
+            wonPanel.SetActive(true);
+            player.playerOxygen.isCounting = false;
         }
+    }
+
+    public void OnExitClick()
+    {
+        ScenesManager.LoadScene(0);
+    }
+
+    public void OnReturnClick()
+    {
+        ScenesManager.ReloadScene();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
